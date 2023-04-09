@@ -1,7 +1,6 @@
-class Worm {
+class Worm extends LivingCreature {
     constructor(x, y) {
-        this.x = x
-        this.y = y
+        super(x,y)
         this.energy = 15
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -15,7 +14,7 @@ class Worm {
         ];
 
     }
-    chooseCell(char) {
+    chooseCell(char,char1) {
         let found = []
 
 
@@ -28,7 +27,7 @@ class Worm {
                 }
             }
             if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == char) {
+                if (matrix[y][x] == char1) {
                     found.push(this.directions[i])
                 }
             }
