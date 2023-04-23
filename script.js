@@ -55,37 +55,9 @@ function nkarel (matrix) {
 
 
 
-        // for (let i in grassArr) {
-        //         grassArr[i].mul()
-        // }
 
-
-        // for (let i in grassEaterArr) {
-        //         grassEaterArr[i].eat()
-        // }
-
-
-
-        // for (let i in predatorArr) {
-        //         predatorArr[i].eat()
-        // }
-
-        // for (let i in wormArr) {
-        //         wormArr[i].eat()
-        // }
-
-        // for (let i in fishArr) {
-        //         fishArr[i].eat()
-        // }
-        // for (let i in catArr) {
-        //         catArr[i].eat()
-        // }
-        
-        // for (let i in hunterArr) {
-        //         hunterArr[i].eat()
-        // }
 
 
 
 }
-socket.on("send message", nkarel)
+socket.on("send matrix", nkarel)

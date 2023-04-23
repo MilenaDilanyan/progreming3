@@ -78,9 +78,9 @@ function matrixGenerator(matrixSize, grass, grassEater, predator, worm, fish,cat
     return matrix
 }
 
-let matrix = matrixGenerator(30, 17, 7, 10, 15, 20, 10,15)
+ matrix = matrixGenerator(30, 17, 7, 10, 15, 20, 10,15)
 
-io.sockets.emit('send message',matrix)
+io.sockets.emit("send matrix",matrix)
 
  grassArr = []
  grassEaterArr = []
@@ -94,8 +94,10 @@ io.sockets.emit('send message',matrix)
  GrassEater = require("./grasseater")
  Predator  = require("./predator")
  Worm  = require("./worm")
+ Fish = require("./fish")
  Cat  = require("./cat")
  Hunter =   require("./hunter")
+
 
  function creanteObjet(){
     for (let y = 0; y < matrix.length; y++) {
@@ -128,8 +130,60 @@ io.sockets.emit('send message',matrix)
 
         }
 }
-io.sockets.emit('send message',matrix)
+io.sockets.emit("send matrix",matrix)
  }
+function game (){
+        for (let i in grassArr) {
+                grassArr[i].mul()
+               }
+       
+        for (let i in grassEaterArr) {
+                grassEaterArr[i].eat()
+        }
+       
+        for (let i in predatorArr) {
+                predatorArr[i].eat()
+        }
+       
+        for (let i in wormArr) {
+                wormArr[i].eat()
+        }
+       
+        for (let i in fishArr) {
+                fishArr[i].eat()
+        }
+        for (let i in catArr) {
+               catArr[i].eat()
+        }
+               
+        for (let i in hunterArr) {
+                hunterArr[i].eat()
+        }
+  io.sockets.emit("send matrix",matrix)
+
+}
+
+
+setInterval(game,300)
+
+
+var statistics = {}
+
+setInterval(function(){
+     statistics.grass = grassArr.length
+     statistics.grassEater = grassEaterArr.length
+     statistics.predator = predatorArr.length
+     statistics.worm = wormArr.length
+     statistics.cat = catArr.length
+     statistics.fish = fishArr.length
+     statistics.hunter= hunterArr.length
+
+     fs.writeFile("statistics.json",JSON.stringify(statistics),function(){
+
+     })
+},300)
+
+
 
 io.on("connection",function(){
     creanteObjet()
