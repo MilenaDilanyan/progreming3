@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        canvas {
+            margin-left: 33%;
+            margin-top: 10%;
+        }
+        body{
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(195,16,102,1) 42%, rgba(0,212,255,1) 83%);
+        }
+
+        h1{
+            text-shadow: black 2px 2px;
+            font-style: italic;
+            color: white;
+            text-align: center;
+        }
+        h2{
+            text-shadow: black 2px 2px;
+            font-style: italic;
+            color: white;
+            text-align: center;
+        }
+        .btn{
+            background-color: aqua;
+        }
+        .worm{
+            background-color: rgb(206, 115, 255);
+        }
+        .pre{
+            background-color: rgb(204, 255, 184);
+        }
+        .hun{
+            background-color: rgb(255, 0, 195);
+        }
+        .fish{
+            background-color: rgb(255, 0, 0);
+        }
+        .gr{
+            background-color: rgb(0, 47, 255);
+        }
+        .cat{
+            background-color: rgb(219, 214, 75);
+        }
+    </style>
+
+</head>
+<body>
+   <h1>GAME OF LIFE</h1>
+   <h2>STUDENT NAME</h2>
+   <button onclick = "addGr()"class="btn effect gr">Sp Grass </button>
+   <button onclick = "addGrassEat()"class="btn effect"> Sp GrassEat </button>
+   <button onclick = "addhun()"class="btn effect hun">Sp Hunter </button>
+   <button onclick = "addpre()"class="btn effect pre">Sp Predator </button>
+   <button onclick = "addworm()"class="btn effect worm">Sp Worm </button>
+   <button onclick = "addfish()"class="btn effect fish">Sp Fish </button>
+   <button onclick = "addcat()"class="btn effect cat">Sp Cat </button>
+
+  
+
+   <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+
+   <script src="/socket.io/socket.io.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
+   <script src="script.js"></script>
+</body>
+</html>
