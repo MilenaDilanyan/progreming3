@@ -29,32 +29,46 @@
             text-align: center;
         }
         .btn{
-            background-color: aqua;
+            background-color: rgb(109, 30, 30);
         }
         .worm{
-            background-color: rgb(206, 115, 255);
+            background-color: rgb(208, 200, 212);
         }
         .pre{
-            background-color: rgb(204, 255, 184);
+            background-color: rgb(36, 37, 35);
         }
         .hun{
-            background-color: rgb(255, 0, 195);
+            background-color: rgba(190, 110, 255, 0.781);
         }
         .fish{
-            background-color: rgb(255, 0, 0);
+            background-color: rgb(169, 170, 231);
         }
         .gr{
-            background-color: rgb(0, 47, 255);
+            background-color: rgb(5, 255, 80);
         }
         .cat{
             background-color: rgb(219, 214, 75);
+        }
+        .spring{
+            background-color: rgb(245, 128, 210);
+        }
+        .summer{
+            background-color: rgb(255, 238, 0);
+        }
+            
+       
+        .autumn{
+            background-color: rgb(255, 115, 0);
+        }
+        .winter{
+            background-color: rgb(0, 17, 255);
         }
     </style>
 
 </head>
 <body>
    <h1>GAME OF LIFE</h1>
-   <h2>STUDENT NAME</h2>
+   <h2>Milena Dilanyan💖</h2>
    <button onclick = "addGr()"class="btn effect gr">Sp Grass </button>
    <button onclick = "addGrassEat()"class="btn effect"> Sp GrassEat </button>
    <button onclick = "addhun()"class="btn effect hun">Sp Hunter </button>
@@ -68,6 +82,12 @@
    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
+   <div class="seasons">
+    <button onclick="Spring()" class="depthsp spring" type="button">Spring</button>
+    <button onclick="Summer()" class="depthsu summer" type="button">Summer</button>
+    <button onclick="Autumn()" class="depthau Autumn" type="button">Autumn</button>
+    <button onclick="Winter()" class="depthwi winter" type="button">Winter</button>
+  </div>
 
    <script src="/socket.io/socket.io.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>

@@ -1,6 +1,17 @@
 var socket = io()
 let side = 30
-///օբյեկտներ պահելու զանգվածներ
+socket.on('Winter',function (data){
+        weather = data
+    })
+    socket.on('Summer',function (data){
+        weather = data
+    })
+    socket.on('Spring',function (data){
+        weather = data
+    })
+    socket.on('Autumn',function (data){
+        weather = data
+    })
 
 function setup() {
     createCanvas(30 * side, 30 * side)
@@ -12,8 +23,8 @@ function setup() {
                 'Predator',
                 'Cat',
                 'Fish',
-                'Hunter',
-                "Worm"
+                "Worm",
+                'Hunter'
         ],
         datasets: [{
                 label: 'Chart of game',
@@ -25,11 +36,12 @@ function setup() {
                         'rgb(238, 207, 34)',
                         'rgb(171, 203, 255)',
                         'rgb(224, 224, 224)',
-                        'rgb(165, 41, 41)',
+                        'rgb(190, 110, 255, 781)',
                 ],
                 hoverOffset: 5
         }]
 };
+var weather = "winter"
 const config = {
         type: 'doughnut',
         data: data,
@@ -52,7 +64,7 @@ myChart = new Chart(
 
 }
 socket.on ("send datas", function(counts){
-        myChart.data.datasets[0].data = [counts.grass, counts.grassEater, counts.predator, counts.cat, counts.hunter, counts.fish,counts.worm];
+        myChart.data.datasets[0].data = [counts.grass, counts.grassEater, counts.predator, counts.cat,counts.fish,counts.worm,counts.hunter]
         myChart.update();
 })
 
@@ -130,3 +142,16 @@ function addcat(){
 function addhun(){
         socket.emit("addhun")
 }
+function Winter() {
+        socket.emit("winter");
+    }
+    function Summer() {
+        socket.emit("summer");
+    }
+    function Spring() {
+        socket.emit("spring");
+    }
+    function Autumn() {
+        socket.emit("autumn");
+    }
+   

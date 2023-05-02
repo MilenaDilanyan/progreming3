@@ -133,6 +133,24 @@ GrassEater = require("./grasseater")
 }
 io.sockets.emit("send matrix",matrix)
  }
+ function Winter() {
+        weath = "winter";
+        io.sockets.emit('Winter', weath);
+    }
+    
+    function Summer() {
+        weath = "summer";
+        io.sockets.emit('Summer', weath);
+    }
+    
+    function Spring() {
+        weath = "spring";
+        io.sockets.emit('Spring', weath);
+    }
+    function Autumn() {
+        weath = "autumn";
+        io.sockets.emit('Autumn', weath);
+    }
 function game (){
         for (let i in grassArr) {
                 grassArr[i].mul()
@@ -256,17 +274,19 @@ function addpre (){
             function addhun (){
        
 
-                for (let i = 0 ; i < 3 ; i++){
+                for (let i = 0 ; i < 8 ; i++){
                     let x = Math.floor(Math.random() * matrix.length)
                     let y = Math.floor(Math.random() * matrix.length)
                           
                           matrix[y][x] = 7 
     
-                          var hun = new Hun(x,y)
+                          var hun= new Hunter(x,y)
     
-                          hunArr.push(hun)
+                          hunterArr.push(hun)
                 }
             }
+            
+     
         
 var statistics = {}
 
@@ -295,6 +315,10 @@ io.on("connection",function(socket){
     socket.on("addfish",addfish)
     socket.on("addcat",addcat)
     socket.on("addhun",addhun)
+    socket.on("spring", Spring);
+    socket.on("summer", Summer);
+    socket.on("autumn", Autumn);
+    socket.on("winter", Winter);
 })
 function alldatas() {
         countd = {
