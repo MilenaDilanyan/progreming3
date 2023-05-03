@@ -133,24 +133,26 @@ GrassEater = require("./grasseater")
 }
 io.sockets.emit("send matrix",matrix)
  }
- function Winter() {
-        weath = "winter";
-        io.sockets.emit('Winter', weath);
-    }
-    
-    function Summer() {
-        weath = "summer";
-        io.sockets.emit('Summer', weath);
-    }
-    
-    function Spring() {
-        weath = "spring";
-        io.sockets.emit('Spring', weath);
-    }
-    function Autumn() {
-        weath = "autumn";
-        io.sockets.emit('Autumn', weath);
-    }
+ var weath;
+
+function Winter() {
+    weath = "winter";
+    io.sockets.emit('Winter', weath);
+}
+
+function Summer() {
+    weath = "summer";
+    io.sockets.emit('Summer', weath);
+}
+
+function Spring() {
+    weath = "spring";
+    io.sockets.emit('Spring', weath);
+}
+function Autumn() {
+    weath = "autumn";
+    io.sockets.emit('Autumn', weath);
+}
 function game (){
         for (let i in grassArr) {
                 grassArr[i].mul()
@@ -203,7 +205,7 @@ function addGr(){
 function addpre (){
        
 
-            for (let i = 0 ; i < 5 ; i++){
+            for (let i = 0 ; i < 10 ; i++){
                 let x = Math.floor(Math.random() * matrix.length)
                 let y = Math.floor(Math.random() * matrix.length)
                       

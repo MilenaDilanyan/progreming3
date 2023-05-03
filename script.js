@@ -1,17 +1,6 @@
 var socket = io()
 let side = 30
-socket.on('Winter',function (data){
-        weather = data
-    })
-    socket.on('Summer',function (data){
-        weather = data
-    })
-    socket.on('Spring',function (data){
-        weather = data
-    })
-    socket.on('Autumn',function (data){
-        weather = data
-    })
+
 
 function setup() {
     createCanvas(30 * side, 30 * side)
@@ -41,7 +30,9 @@ function setup() {
                 hoverOffset: 5
         }]
 };
-var weather = "winter"
+
+//
+
 const config = {
         type: 'doughnut',
         data: data,
@@ -68,15 +59,51 @@ socket.on ("send datas", function(counts){
         myChart.update();
 })
 
+socket.on("Winter", function (data) {
+        weath = data;
+    })
+    socket.on("Summer", function (data) {
+        weath = data;
+    })
+    socket.on("Spring", function (data) {
+        weath = data;
+    })
+    socket.on("Autumn", function (data) {
+        weath = data;
+    })
+     var weath = "spring";
+
 function nkarel (matrix) {
         for (let y = 0; y < matrix.length; y++) {
                 for (let x = 0; x < matrix[y].length; x++) {
                         var toBot = side - side * 0.2
                         textSize(toBot)
+
+                        
                         if (matrix[y][x] == 1) {
-                                fill("green")
-                                rect(x * side, y * side, side, side)
-                                text("🌿", x * side, y * side + toBot)
+
+                                if (weath == "spring") {
+                                        fill("darkgreen");
+                                        rect(x * side, y * side, side, side)
+                                        text("🌿", x * side, y * side + toBot)
+                                    }
+                                    else if (weath == "summer") {
+                                        fill("#79a83b");
+                                        rect(x * side, y * side, side, side)
+                                        text("🌿", x * side, y * side + toBot)
+                                    }
+                                    else if (weath == "autumn") {
+                                        fill("#ff8453");
+                                        rect(x * side, y * side, side, side)
+                                        text("🌿", x * side, y * side + toBot)
+                                    }
+                                    if (weath == "winter") {
+                                        fill("#ffffff");
+                                        rect(x * side, y * side, side, side)
+                                        text("🌿", x * side, y * side + toBot)
+                                    }        
+
+                                
                         } else if (matrix[y][x] == 2) {
                                 fill("yellow")
                                 rect(x * side, y * side, side, side)
@@ -111,11 +138,6 @@ function nkarel (matrix) {
 
                 }
         }
-
-
-
-
-
 
 
 }
@@ -154,4 +176,3 @@ function Winter() {
     function Autumn() {
         socket.emit("autumn");
     }
-   
